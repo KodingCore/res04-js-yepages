@@ -1,8 +1,10 @@
+import { Book } from "./book.js";
+
 class Library{
     #shelf;
     
     constructor(shelf){
-        #shelf = [];
+        this.#shelf = [];
     }
     
     get shelf(){
@@ -14,8 +16,8 @@ class Library{
     }
     
     load(bookList){
-        for(let book in bookList){
-            addBook(book);
+        for(let thisbook in bookList){
+            thisbook = new Book(thisbook.title, thisbook.genre, thisbook.author);
         }
     }
     

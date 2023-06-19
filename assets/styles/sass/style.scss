@@ -9,14 +9,98 @@ $familyPop: 'Poppins', sans-serif;
     
 html
 {
-    
-    
-    font-size: 16px;
-    
+    font-size: 18px;
+    font-family: $familyMon;
     body
     {
-        
-        
+        header
+        {
+            color: white;
+            .headHeader
+            {
+                height: auto;
+                display: flex;
+                background-color: $midnight-green;
+                
+                .mark
+                {
+                    img
+                    {
+                        margin: 10% 0 0 10%;
+                    }
+                }
+                
+                .nav
+                {
+                    display: flex;
+                    align-items: center;
+                    ul
+                    {
+                        display: flex;
+                        li
+                        {
+                            margin-left: 8vw;
+                            margin-top: 5%;
+                        }
+                        
+                    }
+                }
+            }
+            .headBody
+            {
+                height: 400px;
+                background-image: url("../../images/home-books.png");
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+                .textHead
+                {
+                    text-align: center;
+                    margin-bottom: 26px;
+                    
+                    h1{
+                        font-size: 4rem;
+                    }
+                    h2{
+                        font-size: 2rem;
+                    }
+                }
+                
+                .buttonsHead
+                {
+                    height: 40px;
+                    border: solid green;
+                    button{
+                        width: 150px;
+                        height: 100%;
+                        //padding: 20px;
+                        text-align: center;
+                        border-radius: 10px;
+                        
+                        p{
+                            margin: 10px;
+                            border: solid;
+                        }
+                        
+                    }
+                    button:first-child{
+                        background-color: $bright-pink-crayola;
+                        color: white;
+                    }
+                    button:last-child{
+                        background-color: $emerald;
+                        
+                    }
+                }
+            }
+        }
+
+        .container
+        {
+            
+        }
     }
 }
 
