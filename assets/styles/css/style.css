@@ -24,9 +24,15 @@ html body header .headHeader .nav ul li {
   margin-left: 8vw;
   margin-top: 5%;
 }
+html body header .headHeader .nav ul li:hover {
+  color: rgb(255, 209, 102);
+  text-decoration: underline;
+  cursor: pointer;
+}
 html body header .headBody {
   height: 400px;
   background-image: url("../../images/home-books.png");
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -38,28 +44,12 @@ html body header .headBody .textHead {
 }
 html body header .headBody .textHead h1 {
   font-size: 4rem;
+  font-weight: bold;
 }
 html body header .headBody .textHead h2 {
   font-size: 2rem;
-}
-html body header .headBody .buttonsHead {
-  height: 40px;
-}
-html body header .headBody .buttonsHead button {
-  width: 150px;
-  height: 100%;
-  text-align: center;
-  border-radius: 10px;
-}
-html body header .headBody .buttonsHead button p {
-  margin: 10px;
-}
-html body header .headBody .buttonsHead button:first-child {
-  background-color: rgb(239, 71, 111);
-  color: white;
-}
-html body header .headBody .buttonsHead button:last-child {
-  background-color: rgb(6, 214, 160);
+  font-weight: bold;
+  color: rgb(6, 214, 160);
 }
 html body .container {
   display: grid;
@@ -67,50 +57,79 @@ html body .container {
 }
 html body .container aside {
   margin-top: 80px;
+  margin-left: 1.5rem;
 }
 html body .container aside h3 {
   font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
 }
 html body .container aside h4 {
   font-size: 1.25rem;
   margin-bottom: 2rem;
+  font-weight: bold;
 }
 html body .container aside li {
   margin-top: 1rem;
-  margin-left: 0.5rem;
 }
 html body .container div {
   display: flex;
   align-items: center;
   flex-direction: column;
-  border-left: solid black 3px;
 }
 html body .container div h3 {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   margin-top: 80px;
   font-weight: bold;
 }
 html body .container div h3 span {
-  border-bottom: solid 3px green;
+  border-bottom: solid 4px green;
 }
 html body .container div #lib {
-  margin: 150px auto;
+  margin: 100px auto 0 auto;
+  border-left: solid black 1px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 html body .container div #lib article {
-  width: 30%;
-  height: 100vh;
+  position: relative;
+  width: 25%;
+  height: 500px;
   text-align: center;
+  margin-bottom: 50px;
+}
+html body .container div #lib article img {
+  height: 350px;
+}
+html body .container div #lib article h4 {
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 html body .container div #lib article p:nth-child(3) {
   font-weight: bold;
   color: rgb(17, 138, 178);
 }
-html body .container div button {
-  margin: 20px auto;
+html body .container div #lib article p:nth-child(4) {
+  font-size: 0.75rem;
+}
+html body .container div #lib article button {
+  position: relative;
+  background-color: rgb(17, 138, 178);
+  border: none;
+  margin: 30px auto;
+  border-radius: 10px;
+  width: 250px;
+  height: 40px;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+}
+html body .container div #lastBtn {
+  margin: 30px auto;
+  border: none;
+  border-radius: 10px;
   width: 250px;
   height: 40px;
   background-color: rgb(239, 71, 111);

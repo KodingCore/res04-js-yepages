@@ -8,13 +8,7 @@ window.addEventListener("DOMContentLoaded", function(){
     
     newShelf.load(bookList);
     
-    // let i = 0;
-    
     for (let book of newShelf.shelf) {
-        
-        // if(i > 4){
-        //     break;
-        // }
         
         let newArticle = document.createElement("article");
         lib.appendChild(newArticle);
@@ -45,7 +39,6 @@ window.addEventListener("DOMContentLoaded", function(){
         newArticle.appendChild(btn);
         btn.appendChild(btnText);
 
-        // i++;
     }
     const tabCateg = document.getElementById("tabCateg");
     for(let categorie of newShelf.getCategories()){
