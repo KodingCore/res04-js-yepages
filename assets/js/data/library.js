@@ -16,8 +16,9 @@ class Library{
     }
     
     load(bookList){
-        for(let thisbook in bookList){
-            thisbook = new Book(thisbook.title, thisbook.genre, thisbook.author);
+        for(let book of bookList){
+            let newBook = new Book(book);
+            this.#shelf.push(newBook);
         }
     }
     
@@ -27,7 +28,7 @@ class Library{
     
     removeBook(book){ //Notre méthode removeBook prend un Book en paramètre. 
         let i = 0;
-        for(let bookCompare in this.#shelf){
+        for(let bookCompare of this.#shelf){
             if(bookCompare.title === book.title && bookCompare.autor === book.autor){ //Si un Book avec le même titre et le même auteur était présent dans le tableau de l'attribut shelf
                 delete this.#shelf[i]; // Elle le supprime
             }
@@ -36,7 +37,7 @@ class Library{
     }
     
     findBookByTitle(title){ //Notre méthode findBookByTitle prend un titre en paramètres.
-        for(let bookCompare in this.#shelf){
+        for(let bookCompare of this.#shelf){
             if(title === bookCompare.title){ //Si un Book avec ce même titre existe dans le tableau de l'attribut shelf
                 return bookCompare; // Elle le renvoie.
             }
@@ -44,7 +45,7 @@ class Library{
     }
     
     findBooksByAuthor(author){ //Notre méthode findBooksByAuthor prend un auteur en paramètres.
-         for(let bookCompare in this.#shelf){
+         for(let bookCompare of this.#shelf){
             if(author === bookCompare.author){ //Si un Book avec ce même auteur existe dans le tableau de l'attribut shelf
                 return bookCompare; // Elle le renvoie.
             }
@@ -52,7 +53,7 @@ class Library{
     }
     
     findBooksByCategory(category){ //Notre méthode findBooksByCategory prend une catégorie en paramètres. 
-        for(let bookCompare in this.#shelf){
+        for(let bookCompare of this.#shelf){
             if(category === bookCompare.genre){ //Si un Book avec ce même catégorie existe dans le tableau de l'attribut shelf
                 return bookCompare; // Elle le renvoie.
             }

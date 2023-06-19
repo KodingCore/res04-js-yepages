@@ -2,11 +2,15 @@ class Book{
     #title;
     #genre;
     #author;
+    #resume;
+    #image;
     
-    constructor(title, genre, author){
+    constructor(title, genre, author, resume, image){
         this.#title = title;
         this.#genre = genre;
         this.#author = author;
+        this.#resume = resume;
+        this.#image = image;
     }
     
     get title(){
@@ -21,6 +25,14 @@ class Book{
         return this.#author;
     }
     
+    get resume(){
+        return this.#resume;
+    }
+    
+    get image(){
+        return this.#image;
+    }
+    
     set title(title){
         this.#title = title;
     }
@@ -31,6 +43,14 @@ class Book{
     
     set author(author){
         this.#author = author;
+    }
+    
+    set resume(resume){
+        this.#resume = resume;
+    }
+    
+    set image(image){
+        this.#image = image;
     }
 }
 
