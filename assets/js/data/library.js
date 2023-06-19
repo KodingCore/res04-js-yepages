@@ -17,7 +17,7 @@ class Library{
     
     load(bookList){
         for(let book of bookList){
-            let newBook = new Book(book);
+            let newBook = new Book(book.title, book.genre, book.author, book.resume, book.image);
             this.#shelf.push(newBook);
         }
     }
@@ -58,6 +58,16 @@ class Library{
                 return bookCompare; // Elle le renvoie.
             }
         }
+    }
+    
+    getCategories(){
+        let tabCategories = [];
+        for(let book of this.#shelf){
+            if(!tabCategories.includes(book.genre)){
+                tabCategories.push(book.genre);
+            }
+        }
+        return tabCategories;
     }
     
 }

@@ -4,17 +4,22 @@ import { bookList } from "./data/data-books.js";
 window.addEventListener("DOMContentLoaded", function(){
     const lib = document.getElementById("lib");
     
-    let tabBooks = bookList;
+    let newShelf = new Library();
     
-    let newShell = new Library();
+    newShelf.load(bookList);
     
-    newShell.load(tabBooks);
+    // let i = 0;
     
-    console.log(newShell);
-    
-    for (let book of newShell.shelf) {
+    for (let book of newShelf.shelf) {
+        
+        // if(i > 4){
+        //     break;
+        // }
+        
         let newArticle = document.createElement("article");
         lib.appendChild(newArticle);
+        
+        console.log(book.image);
         
         let imageElement = document.createElement("img");
         imageElement.setAttribute("src", book.image);
@@ -39,5 +44,15 @@ window.addEventListener("DOMContentLoaded", function(){
         let btnText = document.createTextNode("DECOUVRIR LE LIVRE");
         newArticle.appendChild(btn);
         btn.appendChild(btnText);
+
+        // i++;
+    }
+    const tabCateg = document.getElementById("tabCateg");
+    for(let categorie of newShelf.getCategories()){
+        let newCategElement = document.createElement("li");
+        let newCategTextNode = document.createTextNode(categorie);
+        
+        tabCateg.appendChild(newCategElement);
+        newCategElement.appendChild(newCategTextNode);
     }
 })

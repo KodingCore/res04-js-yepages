@@ -62,29 +62,54 @@ html body header .headBody .buttonsHead button:last-child {
   background-color: rgb(6, 214, 160);
 }
 html body .container {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+}
+html body .container aside {
+  margin-top: 80px;
+}
+html body .container aside h3 {
+  font-size: 2rem;
+}
+html body .container aside h4 {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+html body .container aside li {
+  margin-top: 1rem;
+  margin-left: 0.5rem;
+}
+html body .container div {
   display: flex;
   align-items: center;
   flex-direction: column;
+  border-left: solid black 3px;
 }
-html body .container h3 {
+html body .container div h3 {
   text-align: center;
+  font-size: 1.25rem;
   margin-top: 80px;
   font-weight: bold;
 }
-html body .container h3 span {
-  border-bottom: solid 3px rgb(239, 71, 111);
+html body .container div h3 span {
+  border-bottom: solid 3px green;
 }
-html body .container #lib {
+html body .container div #lib {
   margin: 150px auto;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-html body .container #lib article {
+html body .container div #lib article {
   width: 30%;
   height: 100vh;
+  text-align: center;
 }
-html body .container button {
+html body .container div #lib article p:nth-child(3) {
+  font-weight: bold;
+  color: rgb(17, 138, 178);
+}
+html body .container div button {
   margin: 20px auto;
   width: 250px;
   height: 40px;
