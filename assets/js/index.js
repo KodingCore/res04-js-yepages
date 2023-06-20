@@ -5,7 +5,11 @@ window.addEventListener("DOMContentLoaded", function(){
     const library = document.getElementById("library");
     const discover = document.getElementById("discover");
     const relations = document.getElementById("relations");
+    const filter = document.getElementById("filter");
     const titrePage = document.getElementById("titrePage");
+    const subtitleMain = document.getElementById("subtitleMain");
+    const filterTitle = document.getElementById("filterTitle");
+    const filterTitleSpan = document.getElementById("filterTitleSpan");
     const tabCateg = document.getElementById("tabCateg");
     const newShelf = new Library();
     const subtitle = document.getElementById("subtitle");
@@ -14,6 +18,7 @@ window.addEventListener("DOMContentLoaded", function(){
     const lastBtn = document.getElementById("lastBtn");
     relationtitle.style.display = "none";
     lastBtn.style.display = "none";
+    filterTitle.style.display = "none";
 
     function DisplayShelf(nbrBooks){
         let i = 0;
@@ -96,8 +101,6 @@ window.addEventListener("DOMContentLoaded", function(){
         GenreRelation(book);
     }
 
-    
-
     function DisplayFilters(){
         for(let categorie of newShelf.getCategories()){
             let newCategElement = document.createElement("li");
@@ -105,7 +108,66 @@ window.addEventListener("DOMContentLoaded", function(){
             
             tabCateg.appendChild(newCategElement);
             newCategElement.appendChild(newCategTextNode);
+            
+            newCategElement.addEventListener("click", function(){
+                while (filter.firstChild) {
+                    filter.removeChild(filter.firstChild);
+                }
+
+                lastBtn.style.display = "unset";
+                filter.style.display = "flex";
+                filterTitle.style.display = "unset";
+                discover.style.display = "none";
+                relations.style.display = "none";
+                library.style.display = "none";
+                relationtitle.style.display = "none";
+                subtitleMain.style.display = "none";
+                filterTitleSpan.textContent = newCategElement.textContent;
+                for(let book of newShelf.shelf){
+                    if(book.genre === newCategElement.textContent){
+                        console.log(newCategElement.textContent);
+                        let newArticle = document.createElement("article");
+                        filter.appendChild(newArticle);
+
+                        let imageElement = document.createElement("img");
+                        imageElement.setAttribute("src", book.image);
+                        newArticle.appendChild(imageElement);
+
+                        let titreElement = document.createElement("h4");
+                        let titreText = document.createTextNode(book.title);
+                        newArticle.appendChild(titreElement);
+                        titreElement.appendChild(titreText);
+
+                        let genreElement = document.createElement("p");
+                        let genreText = document.createTextNode(book.genre);
+                        newArticle.appendChild(genreElement);
+                        genreElement.appendChild(genreText);
+
+                        let authorElement = document.createElement("p");
+                        let authorText = document.createTextNode("par " + book.author);
+                        newArticle.appendChild(authorElement);
+                        authorElement.appendChild(authorText);
+
+                        let btn = document.createElement("button");
+                        let btnText = document.createTextNode("DECOUVRIR LE LIVRE");
+                        newArticle.appendChild(btn);
+                        btn.appendChild(btnText);
+
+                        btn.addEventListener("click", SelectBook.bind(null, book));
+                    }
+                }
+            })
         }
+
+        lastBtn.addEventListener("click", function(){
+            lastBtn.style.display = "none";
+            library.style.display = "flex";
+            relationtitle.style.display = "none";
+            discover.style.display = "none";
+            relations.style.display = "none";
+            filter.style.display = "none";
+            filterTitle.style.display = "none";
+        })
     }
 
     DisplayShelf(50);
@@ -116,16 +178,16 @@ window.addEventListener("DOMContentLoaded", function(){
         while (relations.firstChild) {
             relations.removeChild(relations.firstChild);
         }
-
-        lastBtn.style.display = "unset";
-        library.style.display = "none";
-        relationtitle.style.display = "unset";
+                filter.style.display = "none";
+                filterTitle.style.display = "none";
+                lastBtn.style.display = "unset";
+                library.style.display = "none";
+                relationtitle.style.display = "unset";
         relationtitleSpan.textContent = book.genre;
 
         let i = 0;
 
         for(let oneBook of newShelf.shelf){
-            console.log("lol");
             if(oneBook.genre === book.genre && oneBook.title != book.title){
                 let newArticle = document.createElement("article");
                 relations.appendChild(newArticle);

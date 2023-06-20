@@ -99,7 +99,11 @@ html
                 }
                 li{
                     margin-top: 1rem;
-                    
+                }
+                li:hover{
+                    color: $sunglow;
+                    text-decoration: underline;
+                    cursor: pointer;
                 }
             }
             
@@ -187,6 +191,7 @@ html
                     display: flex;
                     justify-content: space-evenly;
                     width: 100%;
+                    text-align: center;
                     
                     img{
                         height: 350px;
@@ -205,6 +210,47 @@ html
                         cursor: pointer;
                     }
                 }
+
+
+
+                #filterTitleSpan{
+                    border-bottom: solid 4px green;
+                }
+
+                #filter{
+                    margin: 100px 0 0 0;
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-evenly;
+                    width: 100%;
+                    text-align: center;
+                    
+                    article
+                    {
+                        width: 25%;
+
+                        img{
+                            height: 350px;
+                        }
+    
+                        button{
+                            position: relative;
+                            background-color: $blue-ncs;
+                            border: none;
+                            margin: 30px auto;
+                            border-radius: 10px;
+                            width: 250px;
+                            height: 40px;
+                            bottom: 0;
+                            color: white;
+                            cursor: pointer;
+                        }
+                    }
+                    
+                }
+
+
+
 
                 #library
                 {

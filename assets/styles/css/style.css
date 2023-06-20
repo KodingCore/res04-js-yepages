@@ -72,6 +72,11 @@ html body .container aside h4 {
 html body .container aside li {
   margin-top: 1rem;
 }
+html body .container aside li:hover {
+  color: rgb(255, 209, 102);
+  text-decoration: underline;
+  cursor: pointer;
+}
 html body .container div {
   display: flex;
   align-items: center;
@@ -140,11 +145,41 @@ html body .container div #relations {
   display: flex;
   justify-content: space-evenly;
   width: 100%;
+  text-align: center;
 }
 html body .container div #relations img {
   height: 350px;
 }
 html body .container div #relations button {
+  position: relative;
+  background-color: rgb(17, 138, 178);
+  border: none;
+  margin: 30px auto;
+  border-radius: 10px;
+  width: 250px;
+  height: 40px;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+}
+html body .container div #filterTitleSpan {
+  border-bottom: solid 4px green;
+}
+html body .container div #filter {
+  margin: 100px 0 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  width: 100%;
+  text-align: center;
+}
+html body .container div #filter article {
+  width: 25%;
+}
+html body .container div #filter article img {
+  height: 350px;
+}
+html body .container div #filter article button {
   position: relative;
   background-color: rgb(17, 138, 178);
   border: none;
