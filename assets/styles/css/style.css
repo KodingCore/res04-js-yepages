@@ -86,35 +86,74 @@ html body .container div h3 {
 html body .container div h3 span {
   border-bottom: solid 4px green;
 }
-html body .container div #lib {
+html body .container div #discover article {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: repeat(0.1fr, 5);
+}
+html body .container div #discover article img {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1/4;
+}
+html body .container div #discover article h4 {
+  margin: 15px;
+  font-weight: bold;
+  font-size: 1.25rem;
+  grid-column: 2;
+  grid-row: 1/2;
+}
+html body .container div #discover article p:nth-child(3) {
+  font-weight: bold;
+  margin: 15px;
+  color: rgb(17, 138, 178);
+  text-transform: uppercase;
+  grid-column: 2;
+  grid-row: 2/3;
+}
+html body .container div #discover article p:nth-child(4) {
+  margin: 15px;
+  font-size: 0.75rem;
+  grid-column: 2;
+  grid-row: 3/4;
+}
+html body .container div #discover article p:nth-child(5) {
+  margin: 15px;
+  font-size: 0.5rem;
+  grid-column: 2;
+  grid-row: 4/5;
+}
+html body .container div #library {
   margin: 100px auto 0 auto;
   border-left: solid black 1px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
-html body .container div #lib article {
+html body .container div #library article {
   position: relative;
   width: 25%;
   height: 500px;
   text-align: center;
   margin-bottom: 50px;
 }
-html body .container div #lib article img {
+html body .container div #library article img {
   height: 350px;
 }
-html body .container div #lib article h4 {
+html body .container div #library article h4 {
   font-size: 1.25rem;
   font-weight: bold;
 }
-html body .container div #lib article p:nth-child(3) {
+html body .container div #library article p:nth-child(3) {
   font-weight: bold;
   color: rgb(17, 138, 178);
 }
-html body .container div #lib article p:nth-child(4) {
+html body .container div #library article p:nth-child(4) {
   font-size: 0.75rem;
 }
-html body .container div #lib article button {
+html body .container div #library article button {
   position: relative;
   background-color: rgb(17, 138, 178);
   border: none;
@@ -134,6 +173,4 @@ html body .container div #lastBtn {
   height: 40px;
   background-color: rgb(239, 71, 111);
   color: white;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
