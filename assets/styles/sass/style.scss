@@ -117,59 +117,95 @@ html
                     font-weight: bold;
                     span
                     {
-                        border-bottom: solid 4px green;
+                        border-bottom: solid 4px red;
                     }
                 }
+
+                
 
                 #discover
                 {
                     article
                     {
-                        margin-top: 30px;
-                        margin-bottom: 30px;
+                        width: 75%;
+                        margin: 30px auto;
                         display: grid;
-                        grid-template-columns: 1fr 3fr;
-                        grid-template-rows: repeat(0.1fr, 5);
-
+                        grid-template-columns: 0.5fr 3fr;
+                        grid-template-rows: repeat(0.1fr, 4);
+                        
                         img{
-                            position: relative;
+                            margin-left: 15px;
                             grid-column: 1;
-                            grid-row: 1 / 4;
+                            grid-row: 1 / 5;
+                            height: 350px;
                         }
 
                         h4{
-                            margin: 15px;
+                            margin-left: 15px;
+                            margin-top:1rem;
                             font-weight: bold;
-                            font-size: 1.25rem;
+                            font-size: 1.5rem;
                             grid-column: 2;
                             grid-row: 1 / 2;
                         }
-                        p:nth-child(3){
+                        h5{
                             font-weight: bold;
-                            margin: 15px;
+                            margin-left: 15px;
+                            margin-top:1rem;
+                            font-size: 1.25rem;
                             color: $blue-ncs;
                             text-transform: uppercase;
                             grid-column: 2;
                             grid-row: 2 / 3;
                         }
                         
-                        p:nth-child(4){
-                            margin: 15px;
-                            font-size: 0.75rem;
+                        h6{
+                            margin-left: 15px;
+                            margin-top:1rem;
+                            font-weight: bold;
+                            font-size: 1.2rem;
                             grid-column: 2;
                             grid-row: 3 / 4;
                         }
 
-                        p:nth-child(5){
-                            margin: 15px;
-                            font-size: 0.5rem;
+                        p{
+                            margin-left: 15px;
+                            margin-top:1rem;
+                            font-size: 1rem;
                             grid-column: 2;
                             grid-row: 4 / 5;
                         }
                     }
                 }
                 
-                
+                #relationtitleSpan{
+                    border-bottom: solid 4px green;
+                }
+
+                #relations{
+                    margin: 100px 0 0 0;
+                    display: flex;
+                    justify-content: space-evenly;
+                    width: 100%;
+                    
+                    img{
+                        height: 350px;
+                    }
+
+                    button{
+                        position: relative;
+                        background-color: $blue-ncs;
+                        border: none;
+                        margin: 30px auto;
+                        border-radius: 10px;
+                        width: 250px;
+                        height: 40px;
+                        bottom: 0;
+                        color: white;
+                        cursor: pointer;
+                    }
+                }
+
                 #library
                 {
                     margin: 100px auto 0 auto;
@@ -229,10 +265,9 @@ html
                     height: 40px;
                     background-color: $bright-pink-crayola;
                     color: white;
-                    
+                    cursor: pointer;
                 }
             }
         }
     }
 }
-

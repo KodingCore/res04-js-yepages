@@ -4,10 +4,16 @@ import { bookList } from "./data/data-books.js";
 window.addEventListener("DOMContentLoaded", function(){
     const library = document.getElementById("library");
     const discover = document.getElementById("discover");
+    const relations = document.getElementById("relations");
     const titrePage = document.getElementById("titrePage");
     const tabCateg = document.getElementById("tabCateg");
     const newShelf = new Library();
     const subtitle = document.getElementById("subtitle");
+    const relationtitle = document.getElementById("relationtitle");
+    const relationtitleSpan = document.getElementById("relationtitleSpan");
+    const lastBtn = document.getElementById("lastBtn");
+    relationtitle.style.display = "none";
+    lastBtn.style.display = "none";
 
     function DisplayShelf(nbrBooks){
         let i = 0;
@@ -18,8 +24,6 @@ window.addEventListener("DOMContentLoaded", function(){
 
             let newArticle = document.createElement("article");
             library.appendChild(newArticle);
-
-            console.log(book.image);
 
             let imageElement = document.createElement("img");
             imageElement.setAttribute("src", book.image);
@@ -56,7 +60,7 @@ window.addEventListener("DOMContentLoaded", function(){
 
     function SelectBook(book){
         window.sessionStorage.setItem("title", book.title);
-
+        discover.style.display = "unset";
         discover.removeChild(discover.firstChild);
 
         titrePage.textContent = book.title;
@@ -74,12 +78,12 @@ window.addEventListener("DOMContentLoaded", function(){
         newDiscovering.appendChild(titreElement);
         titreElement.appendChild(titreText);
 
-        let genreElement = document.createElement("p");
+        let genreElement = document.createElement("h5");
         let genreText = document.createTextNode(book.genre);
         newDiscovering.appendChild(genreElement);
         genreElement.appendChild(genreText);
 
-        let authorElement = document.createElement("p");
+        let authorElement = document.createElement("h6");
         let authorText = document.createTextNode("par " + book.author);
         newDiscovering.appendChild(authorElement);
         authorElement.appendChild(authorText);
@@ -87,10 +91,12 @@ window.addEventListener("DOMContentLoaded", function(){
         let resumeElement = document.createElement("p");
         let resumeText = document.createTextNode(book.resume);
         newDiscovering.appendChild(resumeElement);
-        authorElement.appendChild(resumeText);
+        resumeElement.appendChild(resumeText);
 
-        console.log(book.title);
+        GenreRelation(book);
     }
+
+    
 
     function DisplayFilters(){
         for(let categorie of newShelf.getCategories()){
@@ -105,4 +111,63 @@ window.addEventListener("DOMContentLoaded", function(){
     DisplayShelf(50);
     DisplayFilters();
     
+    function GenreRelation(book){
+        relations.style.display = "flex";
+        while (relations.firstChild) {
+            relations.removeChild(relations.firstChild);
+        }
+
+        lastBtn.style.display = "unset";
+        library.style.display = "none";
+        relationtitle.style.display = "unset";
+        relationtitleSpan.textContent = book.genre;
+
+        let i = 0;
+
+        for(let oneBook of newShelf.shelf){
+            console.log("lol");
+            if(oneBook.genre === book.genre && oneBook.title != book.title){
+                let newArticle = document.createElement("article");
+                relations.appendChild(newArticle);
+
+                let imageElement = document.createElement("img");
+                imageElement.setAttribute("src", oneBook.image);
+                newArticle.appendChild(imageElement);
+
+                let titreElement = document.createElement("h4");
+                let titreText = document.createTextNode(oneBook.title);
+                newArticle.appendChild(titreElement);
+                titreElement.appendChild(titreText);
+
+                let genreElement = document.createElement("p");
+                let genreText = document.createTextNode(oneBook.genre);
+                newArticle.appendChild(genreElement);
+                genreElement.appendChild(genreText);
+
+                let authorElement = document.createElement("p");
+                let authorText = document.createTextNode("par " + oneBook.author);
+                newArticle.appendChild(authorElement);
+                authorElement.appendChild(authorText);
+
+                let btn = document.createElement("button");
+                let btnText = document.createTextNode("DECOUVRIR LE LIVRE");
+                newArticle.appendChild(btn);
+                btn.appendChild(btnText);
+
+                btn.addEventListener("click", SelectBook.bind(null, oneBook));
+                i++;
+            }
+            if(i === 3){
+                break;
+            }
+        }
+
+        lastBtn.addEventListener("click", function(){
+            lastBtn.style.display = "none";
+            library.style.display = "flex";
+            relationtitle.style.display = "none";
+            discover.style.display = "none";
+            relations.style.display = "none";
+        })
+    }
 })
